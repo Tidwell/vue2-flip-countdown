@@ -105,7 +105,7 @@ export default {
       throw new Error("Missing props 'deadline'");
     }
     const endTime = this.deadline;
-    this.date = Math.trunc(Date.parse(endTime.replace(/-/g, '/')) / 1000);
+    this.date = Math.trunc(Date.parse(endTime) / 1000);
     if (!this.date) {
       throw new Error("Invalid props value, correct the 'deadline'");
     }
@@ -135,7 +135,8 @@ export default {
   watch: {
     deadline: function(newVal, oldVal) {
       const endTime = this.deadline;
-      this.date = Math.trunc(Date.parse(endTime.replace(/-/g, '/')) / 1000);
+      console.log(Date.parse(endTime))
+      this.date = Math.trunc(Date.parse(endTime) / 1000);
       if (!this.date) {
         throw new Error("Invalid props value, correct the 'deadline'");
       }
